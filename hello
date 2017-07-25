@@ -4,7 +4,7 @@ def app(environ, start_response):
 	('Content-type', 'text/plane')
 	]
 	body = ''
-	qwery_str = environ.get(QUERY_STRING)
+	qwery_str = environ.get('QUERY_STRING');
 	list = qwery_str.split()
 	for element in list:
 		body += element + '\n' 
