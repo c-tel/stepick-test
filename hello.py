@@ -3,11 +3,7 @@ def app(environ, start_response):
 	headers = [
 	('Content-type', 'text/plane')
 	]
-	body = ''
-	qwery_str = environ.get('QUERY_STRING');
-	list = qwery_str.split()
-	for element in list:
-		body += element + '\n' 
+	body = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')] 
 	start_response(status, headers)
-	return body.encode()
+	return body
 	
