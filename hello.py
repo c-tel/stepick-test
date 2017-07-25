@@ -9,5 +9,5 @@ def app(environ, start_response):
 	for element in list:
 		body += element + '\n' 
 	start_response(status, headers)
-	return body
+	return body.encode()
 	
