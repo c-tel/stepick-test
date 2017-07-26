@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+import os
 urlpatterns = [
-    url(r'^(login/|signup/|ask/|popular/|new/|question/\d+/|)$', qa.views),
+    url(r'^(login/|signup/|ask/|popular/|new/|question/\d+/|)$', os.path.dirname(os.path.abspath(__file__)) + '.' + qa.views),
 ]
