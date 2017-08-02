@@ -5,14 +5,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class Question(models.Model):                                      
-	title = models.CharField(max_length=255)             
-	text = models.TextField()                         
-	added_at = models.DateTimeField(auto_now_add=True)
-	rating = models.IntegerField(default=0);
-	author = models.ForeignKey(User, related_name = 'author')
-	likes = models.ManyToManyField(User)                 
-
 class QuestionManager(models.Manager):
 	def sortByDate(question):
 		return question.added_at
@@ -23,7 +15,16 @@ class QuestionManager(models.Manager):
 	def popular(self):
 		return self.all().sort(key = sortByPop)
 		
-	
+
+class Question(models.Model):                                      
+	title = models.CharField(max_length=255)             
+	text = models.TextField()                         
+	added_at = models.DateTimeField(auto_now_add=True)
+	rating = models.IntegerField(default=0);
+	author = models.ForeignKey(User, related_name = 'author')
+	likes = models.ManyToManyField(User)                 
+	objects = QuestionManager()
+
 class Answer(models.Model):                                      
 	text = models.TextField() 
 	added_at = models.DateTimeField(auto_now_add=True)
