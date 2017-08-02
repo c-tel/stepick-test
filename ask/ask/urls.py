@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from qa import views
+from qa.views import test
 import os
 urlpatterns = [
-    url(r'^(login/|signup/|ask/|popular/|new/|question/\d+/|)$', views),
+    url(r'^(login/|signup/|ask/|popular/|new/|question/\d+/|)$', test),
 ]
