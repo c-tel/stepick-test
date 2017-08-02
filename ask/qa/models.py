@@ -14,7 +14,7 @@ class Question(models.Model):
 
 class QuestionManager(models.Manager):
 	def sortByDate(question):
-        return question.added_at 
+		return question.added_at
 	def new(self):
 		return self.all().sort(key = sortByDate)
 	def sortByPop(question):
