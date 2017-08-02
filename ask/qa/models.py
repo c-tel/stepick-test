@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
-import django.contrib.auth.models.User
+
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Question(models.Model):                                      
