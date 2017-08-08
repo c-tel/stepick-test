@@ -1,0 +1,28 @@
+<!Doctype HTML>
+<html>
+	<head>
+		<meta charset = 'UTF-8'>
+	</head>
+	<body>
+		<h1>Popular questions</h1>
+		{% for quest in q_list %}
+		<h2>
+			<a href="{{ quest.get_url }}">
+				{{ quest.title }}
+			</a>
+		</h2>
+		{% endfor %}
+		<nav><ul class="pagination">
+			{% for p in paginator.page_range %}
+				{% if p.number == page.number %}
+					<li class="active">
+				{% else %}
+					<li>
+				{% endif %}
+				<a href="{{ /?page= }}{{ p.number }}">{{ p.number }}</a>
+					</li>
+			{% endfor %}
+		</ul></nav>
+	</body>
+
+</html>

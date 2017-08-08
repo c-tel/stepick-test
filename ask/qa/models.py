@@ -4,14 +4,11 @@ from django.db import models
 
 
 class QuestionManager(models.Manager):
-	def sortByDate(question):
-		return question.added_at
 	def new(self):
-		return self.all().sort(key = sortByDate)
-	def sortByPop(question):
-		return question.rating
-	def popular(self):
-		return self.all().sort(key = sortByPop)
+        return self.order_by('-added_at')
+
+    def popular(self):
+        return self.order_by('-rating')
 		
 
 class Question(models.Model):                                      
@@ -22,11 +19,12 @@ class Question(models.Model):
 	author = models.ForeignKey(User, related_name = 'author')
 	likes = models.ManyToManyField(User)                 
 	objects = QuestionManager()
+	def get_url(self):
+        return '/question/{}/'.format(self.id)
 
 class Answer(models.Model):                                      
 	text = models.TextField() 
 	added_at = models.DateTimeField(auto_now_add=True)
 	author = models.ForeignKey(User)
-	question = models.OneToOneField(Question)                 
-
+	question = models.ForeignKey(Question)                 
 	
