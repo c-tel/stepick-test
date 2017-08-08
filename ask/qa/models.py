@@ -6,10 +6,8 @@ from django.db import models
 class QuestionManager(models.Manager):
 	def new(self):
 		return self.order_by('-added_at')
-
-    def popular(self):
-        return self.order_by('-rating')
-	
+	def popular(self):
+		return self.order_by('-rating')
 class Question(models.Model):                                      
 	title = models.CharField(max_length=255)             
 	text = models.TextField()                         
@@ -20,10 +18,15 @@ class Question(models.Model):
 	objects = QuestionManager()
 	def get_url(self):
 		return '/question/{}/'.format(self.id)
-
 class Answer(models.Model):                                      
 	text = models.TextField() 
 	added_at = models.DateTimeField(auto_now_add=True)
 	author = models.ForeignKey(User)
 	question = models.ForeignKey(Question)                 
 	
+	
+#	def new(self):
+#		return self.order_by('-added_at')
+#
+#   def popular(self):
+#        return self.order_by('-rating')
