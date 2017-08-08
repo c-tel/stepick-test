@@ -32,6 +32,7 @@ def question(request, id):
 	question = get_object_or_404(Question, pk=id)
 	answer_list = question.answer_set.order_by('-added_at')
 	return render(request, 'question.html',{
+		'title' : question.title,
 		'quest' : question,
 		'answer_list' : answer_list
 		})
