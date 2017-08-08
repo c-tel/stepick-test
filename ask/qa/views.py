@@ -13,7 +13,7 @@ def main(request):
     questions = paginator.page(page)
     return render(request, 'qa/main.html',{
 	'q_list' : questions,
-	'paginator' : padinator
+	'paginator' : paginator
 	})
 		
 def popular(request):    
@@ -26,7 +26,7 @@ def popular(request):
     questions = paginator.page(page)
     return render(request, 'qa/popular.html',{
 	'q_list' : questions,
-	'paginator' : padinator
+	'paginator' : paginator
 	})
 def question(request, id):    
 	question = get_object_or_404(Question, pk=id)
