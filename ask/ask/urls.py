@@ -20,5 +20,5 @@ import os
 urlpatterns = [
     url(r'^$', main),
 	url(r'^popular/$', popular),
-	url(r'^question/(\d+)$', question),
+	url(r'^question/(?P<id>\d+/?)/$', question),
 ]
