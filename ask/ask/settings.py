@@ -26,7 +26,9 @@ SECRET_KEY = '0wv+kkw@jdbiv6$td3!whbr+46jif@493g3422i6p$ihx@^j_8'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+TEMPLATE_DIRS = (
+    os.path.join(BASE_PATH, 'qa'),
+)
 
 # Application definition
 
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'ask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['qa'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
