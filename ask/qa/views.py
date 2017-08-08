@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 # Create your views here.
 from django.http import HttpResponse 
-import models
+from models import Question, Answer
 def main(request):    
     limit = 10
     try:
