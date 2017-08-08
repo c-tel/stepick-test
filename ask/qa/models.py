@@ -9,7 +9,7 @@ class QuestionManager(models.Manager):
 	def popular(self):
 		return self.order_by('-rating')
 class Question(models.Model):                                      
-	title = models.CharField(max_length=255, default = ''???)             
+	title = models.CharField(max_length=255, default = '???')             
 	text = models.TextField()                         
 	added_at = models.DateTimeField(auto_now_add=True)
 	rating = models.IntegerField(default=0);
