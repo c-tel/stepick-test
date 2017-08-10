@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 from django.http import HttpResponse 
 from models import Question, Answer
-from forms import QuestionForm, AnswerForm
+from forms import AskForm, AnswerForm
 def main(request):    
     limit = 10
     try:
