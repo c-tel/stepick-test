@@ -44,7 +44,6 @@ def question(request, id):
 		'form': form,
 		})
 def ask(request):
-	def post_add(request):
 	if request.method == "POST":
 		form = QuestionForm(request.POST)
 		if form.is_valid():
