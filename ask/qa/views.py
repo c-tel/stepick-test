@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_protect
 # Create your views here.
-from django.http import HttpResponse 
+from django.http import HttpResponse, HttpResponseRedirect  
 from models import Question, Answer
 from forms import AskForm, AnswerForm
 def main(request):    
