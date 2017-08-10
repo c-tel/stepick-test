@@ -3,7 +3,7 @@ from models import Question, Answer
 
 class AskForm(forms.Form):
 	title = forms.CharField(max_length = 100, label='Type title your question')
-	text = forms.CharFieldField(label='Type text your question', widget=forms.Textarea)
+	text = forms.CharField(label='Type text your question', widget=forms.Textarea)
 	def clean_title(self):
 		title = self.cleaned_data['title']
 		return title
