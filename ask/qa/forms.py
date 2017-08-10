@@ -11,7 +11,7 @@ class AskForm(forms.Form):
 		text = self.cleaned_data['text']
 		return text
 	def save(self):
-		question = Question(title = title, text = text)
+		question = Question(**self.cleaned_data)
 		question.save()
 		return question
 
