@@ -45,13 +45,13 @@ def question(request, id):
 		})
 def ask(request):
 	if request.method == "POST":
-		form = QuestionForm(request.POST)
+		form = AskForm(request.POST)
 		if form.is_valid():
 			question = form.save()
 			url = '/question/' + str(question.id)
 			return HttpResponseRedirect(url)
 	else:
-		form = QuestionForm()
+		form = AskForm()
 	return render(request, 'ask.html', {
 		'form': form,
 		})
