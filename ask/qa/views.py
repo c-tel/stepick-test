@@ -29,6 +29,8 @@ def popular(request):
 	'q_list' : questions,
 	'paginator' : paginator
 	})
+
+@csrf_protect
 def question(request, id):    
 	question = get_object_or_404(Question, pk=id)
 	if request.method == 'POST':
@@ -43,6 +45,7 @@ def question(request, id):
 		'answer_list' : answer_list,
 		'form': form,
 		})
+@csrf_protect
 def ask(request):
 	if request.method == "POST":
 		form = AskForm(request.POST)
