@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from qa.views import main, popular, question
+from qa.views import main, popular, question, ask
 import os
 urlpatterns = [
     url(r'^$', main),
 	url(r'^popular/$', popular),
 	url(r'^question/(?P<id>\d+/?)/$', question),
+	url(r'^ask/$', ask),
 ]
