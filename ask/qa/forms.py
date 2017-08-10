@@ -14,10 +14,8 @@ class AskForm(forms.Form):
 		question = Question(**self.cleaned_data)
 		question.save()
 		return question
-	def clean(self):
-		pass
 
-class AnswerForm(forms.Form)
+class AnswerForm(forms.Form):
 	text = forms.CharField(widget=forms.Textarea, label='')
 	question = forms.IntegerField(widget=forms.HiddenInput)
 	def clean_text(self):
@@ -27,5 +25,3 @@ class AnswerForm(forms.Form)
 		answer = Answer(**self.cleaned_data)
 		answer.save()
 		return answer
-	def clean(self):
-		pass
