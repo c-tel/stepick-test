@@ -10,7 +10,7 @@
 		{% for ans in answer_list %}
 			<p>{{ans.text}}<p>
 		{% endfor %}
-		{{form.as_ul}}
+		{{form.as_ul {{csrf_token}} }}
 	</body>
 
 </html>
